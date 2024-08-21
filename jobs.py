@@ -2,44 +2,44 @@ from enum import Enum
 from typing import Set
 
 class SearchSortBy(Enum):
-    MOST_RECENT = 1
-    MOST_RELEVANT = 2
+    MOST_RECENT = "most-recent"
+    MOST_RELEVANT = "most-relevant"
 
 class JobDatePosted(Enum):
-    ANY_TIME = 1
-    PAST_WEEK = 2
-    PAST_MONTH = 3
-    PAST_24_HOURS = 4
+    ANY_TIME = "any-time"
+    PAST_WEEK = "past-week"
+    PAST_MONTH = "past-month"
+    PAST_24_HOURS = "past-24-hours"
 
 class JobExperienceLevel(Enum):
-    INTERNSHIP = 1
-    ENTRY_LEVEL = 2
-    ASSOCIATE = 3
-    MID_SENIOR_LEVEL = 4
-    DIRECTOR = 5
-    EXECUTIVE = 6
+    INTERNSHIP = "internship"
+    ENTRY_LEVEL = "entry-level"
+    ASSOCIATE = "associate"
+    MID_SENIOR_LEVEL = "mid-senior-level"
+    DIRECTOR = "director"
+    EXECUTIVE = "executive"
 
 class JobType(Enum):
-    FULL_TIME = 1
-    PART_TIME = 2
-    CONTRACT = 3
-    TEMPORARY = 4
-    VOLUNTEER = 5
-    INTERNSHIP = 6
-    OTHER = 7
+    FULL_TIME = "full-time"
+    PART_TIME = "part-time"
+    CONTRACT = "contract"
+    TEMPORARY = "temporary"
+    VOLUNTEER = "volunteer"
+    INTERNSHIP = "internship"
+    OTHER = "other"
 
 class JobLocationType(Enum):
-    ON_SITE = 1
-    HYBRID = 2
-    REMOTE = 3
+    ON_SITE = "on-site"
+    HYBRID = "hybrid"
+    REMOTE = "remote"
 
 class JobRequiredEducation(Enum):
-    UNKNOWN = 0
-    HIGH_SCHOOL = 1
-    ASSOCIATES = 2
-    BACHELORS = 3
-    MASTERS = 4
-    PHD = 5
+    UNKNOWN = "unknown"
+    HIGH_SCHOOL = "high-school"
+    ASSOCIATES = "associates"
+    BACHELORS = "bachelors"
+    MASTERS = "masters"
+    PHD = "phd"
 
 class Job:
     company_name: str

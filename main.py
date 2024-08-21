@@ -27,6 +27,8 @@ class LinkedInBot:
     # settings
     email: str
     password: str
+
+
     
     def __init__(self, settings_dict: Dict[str, Any]):
         self._initialize_settings_fields(settings_dict)
