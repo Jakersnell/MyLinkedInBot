@@ -1,7 +1,39 @@
+[open-ai]
+api-key = ""
+
 [login-info]
 email = "jake.r.snell@gmail.com"
 password = "Ninja1945$$"
 
-[search-settings]
-areas = ['Colorado, United States']
-position-searches = ['Software Developer', 'Junior Software Developer']
+[job-search-settings]
+queries = ['Software Developer', 'Junior Software Developer']
+areas = ['Colorado, United States'] # country or city
+experience_levels = [] # internship, entry-level, associate, mid-senior-level, director, or executive
+job_types = [] # blank = [], options = full-time, part-time, contract, temporary, volunteer, internship, or other
+location_types = [] # blank = [], options = on-site, hybrid, or remote
+date-posted = '' # blank = '' or "", options = any-time, past-week, past-month, or past-24-hours
+sort-by = '' # blank = '' or "", options = most-recent, or most-relevant
+
+[job-filtering-settings]
+skills = [] # skills to match a job with, blank = [], options =
+excluded_keywords = [] # exclude jobs with any of these keywords, blank = [], options =
+exclude_companies = [] # exclude jobs from these companies, blank = [], options =
+job_age = '' # maximum age allowed for a job, blank = '' or "", options = N minutes|hours|days|weeks|months, where N is an integer
+job_experience_level = '' #  blank = '' or "", options =
+starting_yearly = '' # minimum yearly salary, blank = '' or "", options =
+
+[job-ai-prompts]
+# These prompts are simple yes or no questions that determine if the job will or will not be applied to
+# Includable items: "resume", "cover-letter", "job" # job is included by default
+# usage examples:
+# prompts = [
+#      [
+#          "resume", # includes your resume when the prompt is sent
+#          "does my resume match this job well?"
+#      ],
+#      [   "resume,
+#          "cover-letter", # includes cover letter and resume
+#          "does this job seem like I would be a good culture fit?"
+#      ]
+#   ]
+prompts = [] # blank = []

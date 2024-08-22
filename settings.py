@@ -10,8 +10,8 @@ class LoginSettings:
 
 @dataclass
 class LinkedInSearchSettings:
-    sort_by: SearchSortBy | None
-    date_posted: JobDatePosted | None
+    sort_by: SearchSortBy
+    date_posted: JobDatePosted
     queries: List[str]
     experience_levels: Set[JobExperienceLevel]
     job_types: Set[JobType]
@@ -19,9 +19,9 @@ class LinkedInSearchSettings:
 
 @dataclass
 class JobFilterSettings:
-    job_experience_level: JobExperienceLevel | None
-    job_age: str | None
-    starting_yearly: int | None
+    job_experience_level: JobExperienceLevel
+    job_age: str
+    starting_yearly: int
     skills: List[str]
     excluded_keywords: List[str]
     exclude_companies: List[str]
@@ -32,6 +32,7 @@ class AiFilterSettings:
 
 @dataclass
 class GlobalBotSettings:
+    open_ai_api_key: str
     login_settings: LoginSettings
     linkedin_search_settings: LinkedInSearchSettings
     job_filter_settings: JobFilterSettings
@@ -45,9 +46,13 @@ def _build_login_settings(raw_settings: Dict[str, Any]) -> LoginSettings:
     return LoginSettings(email, password)
 
 def _build_linkedin_search_settings(search_settings: Dict[str, Any]) -> LinkedInSearchSettings:
-    sort_by = search_settings['sort_by']
+    sort_by = SearchSortBy(search_settings['sort_by'])
     date_posted = search_settings['date_posted']
     queries = search_settings['queries']
-    experience_levels = search_settings['experience_levels']
-    job_types = search_settings['job_types']
-    location_types = search_settings['location_types']
+    experience_levels = {JobExperienceLevel(experience_level) for experience_level in search_settings['experience_levels']}
+    job_types = {JobType(job_type) for job_type in search_settings['job_types']}
+    location_types = {JobLocationType(location_type) for location_type in search_settings['location_types']}
+    return LinkedInSearchSettings(sort_by, date_posted, queries, experience_levels, job_types, location_types)
+
+def _build_job_filter_settings(job_filter_settings: Dict[str, Any]) -> JobFilterSettings:
+    pass

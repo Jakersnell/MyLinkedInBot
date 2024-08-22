@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from enum import Enum
 from typing import Set
 
@@ -20,13 +21,13 @@ class JobExperienceLevel(Enum):
     EXECUTIVE = "executive"
 
 class JobType(Enum):
-    FULL_TIME = "full-time"
-    PART_TIME = "part-time"
-    CONTRACT = "contract"
-    TEMPORARY = "temporary"
-    VOLUNTEER = "volunteer"
-    INTERNSHIP = "internship"
-    OTHER = "other"
+   FULL_TIME = "full-time"
+   PART_TIME = "part-time"
+   CONTRACT = "contract"
+   TEMPORARY = "temporary"
+   VOLUNTEER = "volunteer"
+   INTERNSHIP = "internship"
+   OTHER = "other"
 
 class JobLocationType(Enum):
     ON_SITE = "on-site"
@@ -41,6 +42,7 @@ class JobRequiredEducation(Enum):
     MASTERS = "masters"
     PHD = "phd"
 
+@dataclass
 class Job:
     company_name: str
     location: str
@@ -51,24 +53,3 @@ class Job:
     skills: Set[str]
     required_education: JobRequiredEducation
     description: str
-
-    def __init__(self,
-        company_name: str,
-        location: str,
-        location_type: JobLocationType,
-        job_experience_level: JobExperienceLevel,
-        job_age: str,
-        starting_yearly: int,
-        skills: Set[str],
-        required_education: JobRequiredEducation,
-        description: str
-    ):
-        self.company_name = company_name
-        self.location = location
-        self.location_type = location_type
-        self.job_experience_level = job_experience_level
-        self.job_age = job_age
-        self.starting_yearly = starting_yearly
-        self.skills = skills
-        self.required_education = required_education
-        self.description = description
